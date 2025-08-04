@@ -1,8 +1,14 @@
 ---
-- name: Initial PB
+- name: Using Ansible Vault
   hosts: core1
   gather_facts: no
+  vars_files:
+    - secrets
   tasks:
-    - name : display hostname
+    - name : Output OSPF password 
       debug:
-        msg: "router name is {{ hostname }}"
+        msg: "router {{ inventory_hostname }} OSPF password is {{ OSPF_password }}"
+    - name : Output BGP password 
+      debug:
+        msg: "router {{ inventory_hostname }} BGP password is {{ BGP_password }}"
+    
