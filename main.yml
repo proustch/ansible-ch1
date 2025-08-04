@@ -2,12 +2,19 @@
 - name: Using Ansible Vault
   hosts: all
   gather_facts: no
+  vars:
+    NTP_SERVER:
+      - 10.0.0.100
+      - 10.0.0.101
   vars_files:
     - secrets
   tasks:
-    - name : Output OSPF password 
+#    - name: Output OSPF password 
+#      debug:
+#        msg: "router {{ inventory_hostname }} OSPF password is {{ OSPF_password }}"
+#    - name: Output BGP password 
+#      debug:
+#        msg: "router {{ inventory_hostname }} BGP password is {{ BGP_password }}"
+    - name: Output NTP_SERVER
       debug:
-        msg: "router {{ inventory_hostname }} OSPF password is {{ OSPF_password }}"
-    - name : Output BGP password 
-      debug:
-        msg: "router {{ inventory_hostname }} BGP password is {{ BGP_password }}"
+        msg: "{{ inventory_hostname }} NTP_SERVER is {{ NTP_SERVER }}"
