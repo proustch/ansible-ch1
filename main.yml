@@ -1,0 +1,8 @@
+---
+- name: initial PB
+  hosts: core1
+  gather_facts: no
+  tasks:
+    - name : display hostname
+      debug:
+        msg: "router name is {{ hostname }}"
