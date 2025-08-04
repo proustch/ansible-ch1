@@ -1,6 +1,6 @@
 ---
 - name: Using Ansible Vault
-  hosts: core1
+  hosts: all
   gather_facts: no
   vars_files:
     - secrets
@@ -11,4 +11,3 @@
     - name : Output BGP password 
       debug:
         msg: "router {{ inventory_hostname }} BGP password is {{ BGP_password }}"
-    
