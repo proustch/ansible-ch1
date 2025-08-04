@@ -1,4 +1,4 @@
-hostname {{ inventory_hostmname }}
+#hostname {{ inventory_hostname }}
 {% for server in NTP_SERVER %}
 ntp {{ server }}
 {% endfor %}
